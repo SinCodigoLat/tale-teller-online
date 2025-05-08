@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors for our app
+				studio: {
+					'primary': '#6366f1',    // Indigo
+					'secondary': '#8b5cf6',  // Purple
+					'accent': '#ec4899',     // Pink
+					'background': '#f8fafc', // Light gray
+					'card': '#ffffff',       // White
+					'text': '#0f172a',       // Dark blue
+					'muted': '#94a3b8',      // Slate
+					'progress': '#10b981',   // Green
+					'error': '#ef4444',      // Red
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,25 +83,43 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
+				},
+				'bounce-slow': {
+					'0%, 100%': { 
+						transform: 'translateY(0)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
 					},
-					to: {
-						height: '0'
+					'50%': { 
+						transform: 'translateY(-10px)', 
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
 					}
+				},
+				'gradient-shift': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'bounce-slow': 'bounce-slow 3s infinite',
+				'gradient-shift': 'gradient-shift 8s ease infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'creative-gradient': 'linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899, #8b5cf6, #6366f1)',
 			}
 		}
 	},
